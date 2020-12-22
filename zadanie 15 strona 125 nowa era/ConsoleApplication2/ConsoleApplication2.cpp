@@ -1,9 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <windows.h>
+#include <time.h>
 
 using namespace std;
-
+string odp1;
 void Zad15();
 int main()
 {
@@ -21,8 +23,13 @@ void Zad15() {
     cout << "Aby zakonczyc dalesze wpisywanie wpisz 0\n";
     while (n != 0 && maksLiczb > wpisaneLiczby) {
         cout << "Podaj liczbe nr " << wpisaneLiczby << ": "; cin >> n;
-        tablica.push_back(n);
-        wpisaneLiczby++;
+        if (n >= 0 || n < 0) {
+            tablica.push_back(n);
+            wpisaneLiczby++;
+        }
+        if (n == 0) {
+            return;
+        }
     }
     int i = 1;
     cout << "\n\n";
@@ -47,6 +54,14 @@ void Zad15() {
     for (auto v : trojkatIncorrect) {
         cout << "nr " << test_wpisane2 << " " << v << endl;
         test_wpisane2++;
+    }
+
+    cout << "Czy chcesz ponownie sprawdzic z ktorych podanych liczb, nie da rady zrobic trojkata?\n";
+    cout << "Y - Tak | N - nie\n\n";
+    cin >> odp1;
+    if (odp1 == "Y" || odp1 == "y") {
+        system("cls");
+        Zad15();
     }
 }
 
