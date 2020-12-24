@@ -27,9 +27,6 @@ void Zad15() {
             tablica.push_back(n);
             wpisaneLiczby++;
         }
-        if (n == 0) {
-            return;
-        }
     }
     int i = 1;
     cout << "\n\n";
